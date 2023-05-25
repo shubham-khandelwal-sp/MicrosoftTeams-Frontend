@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import { useState } from "react";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Body from "./Components/Body/Body";
+import Header from "./Components/Header/Header";
+export default function App() {
+  const [activePage, setActivePage] = useState<string>("Home");
 
-function App() {
+  function handlePageClick(selectedPage: string): void {
+    setActivePage(selectedPage);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="teams-container">
+      <div className="teams-header">
+        <Header />
+      </div>
+      <div className="teams-content">
+        <div className="teams-sidebar">
+          <Sidebar activePage={activePage} handlePageClick={handlePageClick} />
+        </div>
+        <div className="teams-body">
+          <Body activePage={activePage} />
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;
