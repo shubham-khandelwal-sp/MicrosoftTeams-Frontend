@@ -37,8 +37,8 @@ function IncomingMessage({ indMessage, chatData }: IncomingMessageProp) {
       </div>
       <div className="incoming-right">
         <div className="incoming-header">
-          <span className="chatdata-name"> {chatData.name} </span>
-          <span className="chatdata-timing"> {indMessage.timing} </span>
+          <span className="chatdata-name"> {chatData?.name} </span>
+          <span className="chatdata-timing"> {indMessage?.timing} </span>
         </div>
         <div className="chatter-message-content">
           <span className="chatdata-text-content"> {indMessage.message} </span>
@@ -59,7 +59,7 @@ export default function Chatter({ messages, chatData }: ChatterProp) {
 
   return (
     <div className="chatter-messages">
-      {messages.map((indMessage) => {
+      {messages?.map((indMessage) => {
         return indMessage.sender ? (
           <IncomingMessage
             key={indMessage.id}

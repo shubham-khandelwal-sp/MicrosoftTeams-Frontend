@@ -4,11 +4,13 @@ import { FiVideo, FiLogOut } from "react-icons/fi";
 import { IoCallOutline } from "react-icons/io5";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { RiFolderUploadLine } from "react-icons/ri";
-import { getRandomChat } from "../../../Data/ChatData";
 import Chatter from "./Chatter";
 import NewMessage from "./NewMessage";
-import { useState } from "react";
 import { ChatMessageType,ChatListDataType } from "../../../Types/types";
+import { Spinner } from "../../Spinner/Spinner";
+import { ErrorState } from "../../Error/ErrorState";
+import { useAddMessage } from "../../../hooks/useAddMessage";
+import { ACTION } from "../../../Constants/constants";
 
 function getCurrTime():string {
   function convertToTwoLetters(val:number): string {
@@ -31,8 +33,15 @@ type ChatRightFoldProp= {
 }
 
 export default function ChatRightFold({ chatData }: ChatRightFoldProp) {
-  const [messagesData, setMessagesData] = useState(getRandomChat(30));
 
+  const {
+    data,
+    onAction,
+    loading,
+    error,
+  } = useAddMessage(chatData?.id?.toString());
+
+  const messagesData = data?.messages
   function handleSendMessage(message: string) {
     const messageObj: ChatMessageType = {
       id: messagesData[messagesData.length - 1].id + 1,
@@ -40,14 +49,21 @@ export default function ChatRightFold({ chatData }: ChatRightFoldProp) {
       message: message,
       timing: getCurrTime()
     };
-    setMessagesData([...messagesData, messageObj]);
+    onAction({
+      type: ACTION.ADD_MESSAGE,
+      newMessage : messageObj
+    })
   }
+
+  if(loading) return < Spinner color='#000000' size={100} />
+  if(error)  return < ErrorState />
+
   return (
     <div className="chatRightFold">
       <div className="chatinfo-header">
         <div className="chatinfo-header-left">
           <CgProfile className="right-profile" />
-          <h2> {chatData.name} </h2>
+          <h2> {chatData?.name} </h2>
           <span> Chat </span>
           <span> Files </span>
           <span> Organisation </span>

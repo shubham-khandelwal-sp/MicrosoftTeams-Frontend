@@ -1,6 +1,5 @@
 import "./style.css";
 import { AiOutlineLeft, AiOutlineRight, AiOutlineSearch } from "react-icons/ai";
-//import {AvatarIcon} from "teams-frontend/public/icons/AvatarIcon.png"
 import { TfiMore } from "react-icons/tfi";
 export default function Header() {
   return (
@@ -17,7 +16,7 @@ export default function Header() {
         </div>
         <div className="header-profile">
           <TfiMore className="more-item-icon" />
-          <img src={"../../../public/icons/AvatarIcon.png"} alt="Avatar" className="header-avatar" />
+          <img src={require("../../icons/AvatarIcon.png")} alt="Avatar" className="header-avatar" />
         </div>
       </div>
     </div>

@@ -263,6 +263,7 @@ chatpinheader label {
 .incoming-message {
   display: flex;
   justify-content: flex-start;
+  margin: 5px 0px 5px 0px;
 }
 
 .incoming-left {
@@ -306,6 +307,7 @@ chatpinheader label {
 .outgoing-message {
   display: flex;
   justify-content: flex-end;
+  margin: 5px 0px 5px 5px;
 }
 
 .outgoing-header {
@@ -319,6 +321,10 @@ chatpinheader label {
   padding: 8px 16px 10px 16px;
   display: flex;
   flex-direction: column;
+}
+
+.chatter-message-content{
+  text-align: left;
 }
 /* 
  New messsage

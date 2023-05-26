@@ -17,3 +17,13 @@ export type ChatMessageType = {
     message: string,
     timing: string
 }
+
+export type UserMessagesResType = {
+    id: string,
+    messages: ChatMessageType[]
+}
+
+export type Action = {
+    type: string,
+    newMessage: ChatMessageType
+}

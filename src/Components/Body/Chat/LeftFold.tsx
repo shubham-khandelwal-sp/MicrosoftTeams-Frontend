@@ -34,9 +34,9 @@ export default function ChatLeftFold({
           </div>
           <div>
             <ChatBar
-              key={chatList[0].id}
-              isActive={chatList[0].id === selectedChat}
-              chatData={chatList[0]}
+              key={chatList?.[0].id}
+              isActive={chatList?.[0].id === selectedChat}
+              chatData={chatList?.[0]}
               changeSelectedChat={changeSelectedChat}
             />
           </div>
@@ -47,7 +47,7 @@ export default function ChatLeftFold({
             <small> Recent </small>
           </div>
           <div>
-            {chatList.map((chatData) => {
+            {chatList?.map((chatData) => {
               return (
                 <ChatBar
                   key={chatData.id}

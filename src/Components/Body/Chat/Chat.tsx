@@ -3,10 +3,15 @@ import ChatRightFold from "./RightFold";
 import "./style.css";
 import { ChatListData } from "../../../Data/ChatData";
 import { useState } from "react";
-import {ChatListDataType} from "../../../Types/types"
+import {useAllUsers} from '../../../hooks/useAllUsers'
+import {Spinner} from '../../Spinner/Spinner'
+import { ErrorState } from "../../Error/ErrorState";
 export default function Chat() {
-  const [chatList, setChatList] = useState<ChatListDataType[]>(ChatListData);
+  const {allUserDetails: chatList,loading,error} = useAllUsers()
   const [selectedChat, setSelectedChat] = useState<number>(0);
+
+  if(loading) return < Spinner color='#000000' size={100} />
+  if(error)  return < ErrorState />
 
   return (
     <div className="chat">
@@ -18,7 +23,7 @@ export default function Chat() {
         />
       </div>
       <div className="chat-right">
-        <ChatRightFold chatData={chatList[selectedChat]} />
+        <ChatRightFold chatData={chatList?.[selectedChat]} />
       </div>
     </div>
   );
