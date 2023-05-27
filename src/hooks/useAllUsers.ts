@@ -5,10 +5,11 @@ import { fetchApi,getAllUsersUrl } from "../Constants/constants";
 type AllUsers = {
    allUserDetails: ChatListDataType[],
    loading: boolean,
-   error: Error | undefined
+   error: Error | undefined,
+   updateQuery: (newData:ChatListDataType[]) => void
 }
 
 export const useAllUsers = (): AllUsers => {
-    const { data: allUserDetails, loading, error }  = useQuery(fetchApi,getAllUsersUrl,false)
-    return {allUserDetails,loading,error}
+    const { data: allUserDetails, loading, error, updateQuery }  = useQuery(fetchApi,getAllUsersUrl,false)
+    return {allUserDetails,loading,error,updateQuery}
 }

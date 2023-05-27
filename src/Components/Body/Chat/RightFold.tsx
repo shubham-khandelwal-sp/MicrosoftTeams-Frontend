@@ -29,10 +29,11 @@ function getCurrTime():string {
 }
 
 type ChatRightFoldProp= {
-  chatData: ChatListDataType
+  chatData: ChatListDataType;
+  handleNewMessage: (messageObj: ChatMessageType) => void
 }
 
-export default function ChatRightFold({ chatData }: ChatRightFoldProp) {
+export default function ChatRightFold({ chatData, handleNewMessage }: ChatRightFoldProp) {
 
   const {
     data,
@@ -53,6 +54,7 @@ export default function ChatRightFold({ chatData }: ChatRightFoldProp) {
       type: ACTION.ADD_MESSAGE,
       newMessage : messageObj
     })
+    handleNewMessage(messageObj)
   }
 
   if(loading) return < Spinner color='#000000' size={100} />
