@@ -1,6 +1,7 @@
 import { CgProfile } from "react-icons/cg";
 import {useRef,useEffect} from 'react'
 import { ChatMessageType,ChatListDataType } from "../../../Types/types";
+import { ChatAvatar } from "./ChatAvatar";
 type IncomingMessageProp = {
    indMessage: ChatMessageType;
    chatData: ChatListDataType;
@@ -32,7 +33,7 @@ function IncomingMessage({ indMessage, chatData }: IncomingMessageProp) {
     <div className="incoming-message">
       <div className="incoming-left">
         <div className="incoming-icon">
-          <CgProfile />
+          <ChatAvatar name={chatData?.name} id={chatData?.id} />
         </div>
       </div>
       <div className="incoming-right">

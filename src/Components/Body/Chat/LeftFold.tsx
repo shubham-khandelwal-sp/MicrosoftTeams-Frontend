@@ -1,9 +1,10 @@
 import { MdOutlineExpandMore } from "react-icons/md";
 import { IoFilterOutline } from "react-icons/io5";
 import { RiChatNewLine } from "react-icons/ri";
-import { RxTriangleDown } from "react-icons/rx";
+import { RxTriangleDown, RxTriangleRight } from "react-icons/rx";
 import ChatBar from "./ChatBar";
 import { ChatListDataType } from "../../../Types/types";
+import { useState } from "react";
 type ChatLeftFoldProps = {
   chatList: ChatListDataType[];
   selectedChat: number;
@@ -14,6 +15,8 @@ export default function ChatLeftFold({
   selectedChat,
   changeSelectedChat
 }: ChatLeftFoldProps) {
+  const [showPinned,setShowPinned]= useState<boolean>(true)
+  const [showRecent,setShowRecent]= useState<boolean>(true)
   return (
     <div className="chatLeftFold">
       <div className="chatListHeader">
@@ -28,26 +31,28 @@ export default function ChatLeftFold({
       </div>
       <div className="chat-total">
         <div className="chatPinned">
-          <div className="chatpinheader">
-            <RxTriangleDown />
+          <div className="chatpinheader" onClick={()=> setShowPinned(!showPinned)}>
+           {showPinned?<RxTriangleDown />: <RxTriangleRight/>}
             <small> Pinned </small>
           </div>
           <div>
-            <ChatBar
-              key={chatList?.[0].id}
-              isActive={chatList?.[0].id === selectedChat}
-              chatData={chatList?.[0]}
-              changeSelectedChat={changeSelectedChat}
-            />
+            { showPinned &&
+              <ChatBar
+                key={chatList?.[0].id}
+                isActive={chatList?.[0].id === selectedChat}
+                chatData={chatList?.[0]}
+                changeSelectedChat={changeSelectedChat}
+              />
+           }
           </div>
         </div>
         <div className="chatList">
-          <div className="chatpinheader">
-            <RxTriangleDown />
+          <div className="chatpinheader" onClick={()=> setShowRecent(!showRecent)}>
+           {showRecent?<RxTriangleDown />: <RxTriangleRight/>}
             <small> Recent </small>
           </div>
           <div>
-            {chatList?.map((chatData) => {
+            { showRecent && chatList?.map((chatData) => {
               return (
                 <ChatBar
                   key={chatData.id}

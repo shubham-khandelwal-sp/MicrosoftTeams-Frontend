@@ -1,5 +1,6 @@
 import { CgProfile } from "react-icons/cg";
 import { ChatListDataType } from "../../../Types/types";
+import {ChatAvatar} from "./ChatAvatar"
 type ChatBarProps = {
   chatData: ChatListDataType;
   isActive: boolean;
@@ -10,7 +11,7 @@ export default function ChatBar({ chatData, isActive, changeSelectedChat }: Chat
   return (
     <div className={classList} onClick={() => changeSelectedChat(chatData?.id)}>
       <div className="chatbar-icon">
-        <CgProfile className="chatter-cg-profile" />
+        <ChatAvatar name={chatData?.name} id={chatData?.id} />
       </div>
       <div className="chatbar-details">
         <div className="chatbar-header">

@@ -11,6 +11,7 @@ import { Spinner } from "../../Spinner/Spinner";
 import { ErrorState } from "../../Error/ErrorState";
 import { useAddMessage } from "../../../hooks/useAddMessage";
 import { ACTION } from "../../../Constants/constants";
+import { ChatAvatar } from "./ChatAvatar";
 
 function getCurrTime():string {
   function convertToTwoLetters(val:number): string {
@@ -64,7 +65,7 @@ export default function ChatRightFold({ chatData, handleNewMessage }: ChatRightF
     <div className="chatRightFold">
       <div className="chatinfo-header">
         <div className="chatinfo-header-left">
-          <CgProfile className="right-profile" />
+        <ChatAvatar name={chatData?.name} id={chatData?.id} />
           <h2> {chatData?.name} </h2>
           <span> Chat </span>
           <span> Files </span>

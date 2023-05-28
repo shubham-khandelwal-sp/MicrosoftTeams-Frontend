@@ -27,3 +27,8 @@ export type Action = {
     type: string,
     newMessage: ChatMessageType
 }
+
+export type AvatarInfoType ={
+    background: string,
+    text: string 
+}

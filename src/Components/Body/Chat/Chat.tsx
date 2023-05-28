@@ -9,7 +9,6 @@ import { ErrorState } from "../../Error/ErrorState";
 import { ChatMessageType, ChatListDataType } from "../../../Types/types";
 export default function Chat() {
   const {allUserDetails: chatList,loading,error, updateQuery} = useAllUsers()
-  console.log(chatList)
   const [selectedChat, setSelectedChat] = useState<number>(0);
 
   if(loading) return < Spinner color='#000000' size={100} />
@@ -19,7 +18,7 @@ export default function Chat() {
        const newUserChat: ChatListDataType = {
         id: chatList[selectedChat].id,
         name: chatList[selectedChat].name,
-        lastMessage: newMessageObj.message,
+        lastMessage: (newMessageObj.sender ? "" :"You: ") + newMessageObj.message,
         lastModified: newMessageObj.timing
        }
        const newChatList = chatList.map((chat)=>{
