@@ -8,6 +8,9 @@ type UserMessages = {
    error: Error | undefined
 }
 
+/*
+ Append query to the fun name
+*/
 export const useUserMessages = (userId: string): UserMessages => {
     const shouldSkip = !userId
     const { data: userMessages, loading, error }  = useQuery(fetchApi,getUserMessagesUrl(userId), shouldSkip)

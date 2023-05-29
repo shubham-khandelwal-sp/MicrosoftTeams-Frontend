@@ -1,5 +1,5 @@
 import Home from "./Home/Home";
-import Chat from "./Chat/Chat";
+import {Chat} from "./Chat/Chat";
 import Teams from "./Teams/Chat";
 import Activity from "./Activity/Activity";
 import Apps from "./Apps/Apps";

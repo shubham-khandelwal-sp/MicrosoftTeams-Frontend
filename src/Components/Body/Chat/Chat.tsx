@@ -1,13 +1,12 @@
 import ChatLeftFold from "./LeftFold";
 import ChatRightFold from "./RightFold";
 import "./style.css";
-import { ChatListData } from "../../../Data/ChatData";
 import { useState } from "react";
 import {useAllUsers} from '../../../hooks/useAllUsers'
 import {Spinner} from '../../Spinner/Spinner'
 import { ErrorState } from "../../Error/ErrorState";
 import { ChatMessageType, ChatListDataType } from "../../../Types/types";
-export default function Chat() {
+export function Chat() {
   const {allUserDetails: chatList,loading,error, updateQuery} = useAllUsers()
   const [selectedChat, setSelectedChat] = useState<number>(0);
 

@@ -5,9 +5,9 @@ type ChatAvatarProp = {
     id: number
 }
 function getInitials(name: string){
-    const words= name.trim().split(" ");
-    const initials =words.map((word) => word.charAt(0))
-    return initials.join("")
+    const words= name?.trim()?.split(" ");
+    const initials =words?.map((word) => word.charAt(0))
+    return initials?.join("")
 }
 export function ChatAvatar({name,id}: ChatAvatarProp){
     const avatarText: string = getInitials(name)

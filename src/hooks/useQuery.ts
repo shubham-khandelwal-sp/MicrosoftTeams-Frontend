@@ -7,7 +7,7 @@ import { STATUS } from "../Constants/constants";
 
 type statusProps = {
   status: string;
-  data: any;
+  data: any; // Generic
   error: Error | undefined;
 };
 
