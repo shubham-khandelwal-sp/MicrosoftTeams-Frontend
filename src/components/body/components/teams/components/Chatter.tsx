@@ -1,6 +1,6 @@
 import { CgProfile } from "react-icons/cg";
 import {useRef,useEffect} from 'react'
-import { ChatMessageType,ChatListDataType } from "../../../types/Types";
+import { ChatMessageType,ChatListDataType } from "../types/types";
 type IncomingMessageProp = {
    indMessage: ChatMessageType;
    chatData: ChatListDataType;

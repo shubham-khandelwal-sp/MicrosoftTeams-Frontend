@@ -11,8 +11,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { TfiHelpAlt } from "react-icons/tfi";
 
 //types
-import { SideBarOption } from "../components/sideBar/Sidebar";
-
+import { SideBarOption } from "../types/types";
 
 export const TopSidebar: SideBarOption[] = [
   {

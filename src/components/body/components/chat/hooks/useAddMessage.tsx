@@ -6,10 +6,10 @@ import { useQuery } from "./useQuery";
 import { useMutation } from "./useMutation";
 
 //types
-import { Action, ChatMessageType } from "../types/Types";
+import { Action, ChatMessageType } from "../types/types";
 
 //constants
-import { ACTION , fetchApi } from "../constants/constants";
+import { ACTION , fetchApi } from "../constants/constants"
 
 export const useAddMessage = (userId: string) => {
   const isValidUrl = !(userId)

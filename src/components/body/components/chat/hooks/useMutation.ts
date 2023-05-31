@@ -4,16 +4,24 @@ import { useCallback, useState } from "react";
 //constants
 import { STATUS } from "../constants/constants";
 
-type statusProps = {
+type StatusProps = {
   status: string;
   data: any;
   error: Error | undefined;
 };
 
-export const useMutation = <TMutation>(url: string, config: any) => {
-  const [state, setState] = useState<statusProps>(() => {
-    return { status: STATUS.IDLE, data: undefined, error: undefined };
-  });
+type MutationConfig<TMutation> = {
+  onSuccess: (data: TMutation) => void;
+};
+
+const initialState : StatusProps = {
+   status: STATUS.IDLE,
+   data: undefined,
+   error: undefined
+}
+
+export const useMutation = <TMutation>(url: string, config: MutationConfig<TMutation>) => {
+  const [state, setState] = useState<StatusProps>(initialState);
 
   const mutate = useCallback(
     (payload: TMutation) => {
@@ -30,14 +38,7 @@ export const useMutation = <TMutation>(url: string, config: any) => {
       })
         .then((response) => {
           if (!response.ok) {
-            setState((state) => {
-              return {
-                ...state,
-                status: STATUS.ERROR,
-                error: new Error("Error from backend"),
-              };
-            });
-            throw new Error();
+            throw new Error('Error from backend');
           }
           return response.json();
         })
@@ -51,12 +52,12 @@ export const useMutation = <TMutation>(url: string, config: any) => {
             };
           });
         })
-        .catch(() => {
+        .catch((err) => {
           setState((state) => {
             return {
               ...state,
               status: STATUS.ERROR,
-              error: new Error("can't mutate data"),
+              error: err || new Error("can't mutate data"),
             };
           });
         });
@@ -66,9 +67,9 @@ export const useMutation = <TMutation>(url: string, config: any) => {
 
   return {
     mutate,
-    newData: state.data,
+    data: state.data,
     status: state.status,
     loading: state.status === STATUS.LOADING,
-    error: state.status === STATUS.ERROR,
+    error: state.error,
   };
 };

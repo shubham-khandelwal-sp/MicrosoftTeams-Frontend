@@ -2,7 +2,7 @@
 import { useQuery } from "./useQuery";
 
 //types
-import {ChatListDataType} from "../types/Types"
+import {ChatListDataType} from "../types/types"
 import { QueryResult } from "./useQuery";
 
 //constants

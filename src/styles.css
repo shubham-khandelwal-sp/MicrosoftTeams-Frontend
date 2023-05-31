@@ -36,6 +36,6 @@ body {
 }
 
 .teams-body {
-  width: 96%;
+  flex-grow: 1;
   height: 100%;
 }

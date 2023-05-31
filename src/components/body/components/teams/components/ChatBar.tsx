@@ -1,5 +1,5 @@
 import { CgProfile } from "react-icons/cg";
-import { ChatListDataType } from "../../../types/Types";
+import { ChatListDataType } from "../types/types";
 type ChatBarProps = {
   chatData: ChatListDataType;
   isActive: boolean;

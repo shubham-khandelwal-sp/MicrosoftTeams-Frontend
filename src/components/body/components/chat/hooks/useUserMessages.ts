@@ -1,5 +1,10 @@
+//hooks
 import { useQuery } from "./useQuery";
-import {UserMessagesResType} from "../types/Types"
+
+//types
+import {UserMessagesResType} from "../types/types"
+
+//constants
 import { fetchApi } from "../constants/constants";
 
 type UserMessages = {

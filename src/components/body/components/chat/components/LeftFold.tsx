@@ -9,10 +9,10 @@ import { RxTriangleDown, RxTriangleRight } from "react-icons/rx";
 import { ChatBar } from "./ChatBar";
 
 //hooks
-import { useToggleVisibility } from "../../../hooks/useToggleVisibility";
+import { useToggleVisibility } from "../hooks/useToggleVisibility";
 
 // types
-import { ChatListDataType } from "../../../types/Types";
+import { ChatListDataType } from "../types/types"
 
 type CollapsibleProp = {
   className: string,
@@ -36,7 +36,7 @@ const Collapsible = ({className,title,showContent,onClick,children}: Collapsible
 
 type ChatLeftFoldProps = {
   chatList: ChatListDataType[];
-  selectedChat: number;
+  selectedChat: number | undefined;
   changeSelectedChat: (num: number) => void
 }
 

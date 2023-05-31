@@ -2,7 +2,7 @@
 import {ChatAvatar} from "./ChatAvatar"
 
 //types
-import { ChatListDataType } from "../../../types/Types";
+import { ChatListDataType } from "../types/types"
 
 type ChatBarProps = {
   chatData: ChatListDataType;

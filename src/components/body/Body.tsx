@@ -1,14 +1,14 @@
 //components
-import {Home} from "./home";
-import {Chat} from "./chat";
-import {Teams} from "./teams";
-import {Activity} from "./activity";
-import {Apps} from "./apps";
-import {Calls} from "./calls";
-import {Files} from "./files";
-import {Help} from "./help";
-import {More} from "./more";
-import {SprinklrHub} from "./sprinklrHub";
+import {Home} from "./components/home";
+import {Chat} from "./components/chat";
+import {Teams} from "./components/teams";
+import {Activity} from "./components/activity";
+import {Apps} from "./components/apps";
+import {Calls} from "./components/calls";
+import {Files} from "./components/files";
+import {Help} from "./components/help";
+import {More} from "./components/more";
+import {SprinklrHub} from "./components/sprinklrHub";
 
 //styles
 import "./styles.css";

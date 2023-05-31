@@ -1,5 +1,5 @@
 //types
-import { AvatarInfo } from "../types/Types";
+import { AvatarInfo } from "../types/types";
 
 export const fetchApi = (url: string) => {
     return fetch(url);

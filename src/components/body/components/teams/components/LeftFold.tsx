@@ -3,7 +3,7 @@ import { IoFilterOutline } from "react-icons/io5";
 import { RiChatNewLine } from "react-icons/ri";
 import { RxTriangleDown } from "react-icons/rx";
 import ChatBar from "./ChatBar";
-import { ChatListDataType } from "../../../types/Types";
+import { ChatListDataType } from "../types/types";
 type ChatLeftFoldProps = {
   chatList: ChatListDataType[];
   selectedChat: number;

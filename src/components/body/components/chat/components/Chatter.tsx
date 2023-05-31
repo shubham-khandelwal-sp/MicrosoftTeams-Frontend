@@ -5,7 +5,7 @@ import { useRef, useEffect } from 'react';
 import { ChatAvatar } from "./ChatAvatar";
 
 // Types
-import { ChatMessageType, ChatListDataType } from "../../../types/Types";
+import { ChatMessageType, ChatListDataType } from "../types/types";
 
 type IncomingMessageProp = {
    indMessage: ChatMessageType;

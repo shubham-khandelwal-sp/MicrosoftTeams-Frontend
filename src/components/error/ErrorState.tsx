@@ -1,10 +1,13 @@
 //styles
 import "./style.css"
 
-export const ErrorState = () => {
+type ErrorProp = {
+    err: Error
+}
+export const ErrorState = ({err}: ErrorProp) => {
     return (
         <div className="error-state">
-            Oops! Can't fetch the data 
+            {err.message}
         </div>
     )
 }

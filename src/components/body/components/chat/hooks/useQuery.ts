@@ -11,9 +11,9 @@ export type QueryResult<TData> = {
   updateQuery: (newData: TData[]) => void
 };
 
-type statusProps = {
+type QueryState = {
   status: string;
-  data: any; // Generic
+  data: any;
   error: Error | undefined;
 };
 
@@ -22,7 +22,7 @@ export const useQuery =(
   asyncFuncParams: string,
   skip: boolean
 ) => {
-  const [state, setState] = useState<statusProps>({
+  const [state, setState] = useState<QueryState>({
     status: STATUS.IDLE,
     data: undefined,
     error: undefined,
@@ -41,12 +41,6 @@ export const useQuery =(
     asyncFunc(asyncFuncParams)
       .then((response) => {
         if (!response.ok) {
-          setState((state) => {
-            return {
-              ...state,
-              error: new Error("Error from backend"),
-            };
-          });
           throw new Error();
         }
         return response.json();
@@ -60,12 +54,12 @@ export const useQuery =(
           };
         });
       })
-      .catch(() => {
+      .catch((err) => {
         setState((state) => {
           return {
             ...state,
             status: STATUS.ERROR,
-            error: new Error("Can't fetch the data"),
+            error: err || new Error("Can't fetch the data"),
           };
         });
       });

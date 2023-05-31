@@ -1,5 +1,5 @@
 //types
-import { SideBarOption } from "./Sidebar"; 
+import { SideBarOption } from "./types/types";
 
 type SideBarOptionType = {
   option: SideBarOption;

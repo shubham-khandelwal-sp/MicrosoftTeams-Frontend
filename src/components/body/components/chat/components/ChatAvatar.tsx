@@ -1,5 +1,9 @@
-import {AvatarColorCombos} from "../../../constants/constants" 
-import { AvatarInfo } from "../../../types/Types"
+//types
+import { AvatarInfo } from "../types/types";
+
+//constants
+import { AvatarColorCombos } from "../constants/constants";
+
 type ChatAvatarProp = {
     name: string,
     id: number
