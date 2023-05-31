@@ -1,7 +1,12 @@
-import { CgProfile } from "react-icons/cg";
-import {useRef,useEffect} from 'react'
-import { ChatMessageType,ChatListDataType } from "../../../Types/types";
+// Libs
+import { useRef, useEffect } from 'react';
+
+// Components
 import { ChatAvatar } from "./ChatAvatar";
+
+// Types
+import { ChatMessageType, ChatListDataType } from "../../../types/Types";
+
 type IncomingMessageProp = {
    indMessage: ChatMessageType;
    chatData: ChatListDataType;
@@ -13,6 +18,7 @@ type ChatterProp = {
   messages: ChatMessageType[];
   chatData: ChatListDataType
 }
+
 function OutgoingMessage({ indMessage }: OutgoingMessageProp) {
   return (
     <div className="outgoing-message">
@@ -49,7 +55,7 @@ function IncomingMessage({ indMessage, chatData }: IncomingMessageProp) {
   );
 }
 
-export default function Chatter({ messages, chatData }: ChatterProp) {
+export const Chatter = ({ messages, chatData }: ChatterProp) => {
   const lastMessageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

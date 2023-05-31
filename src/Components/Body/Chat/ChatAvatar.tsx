@@ -1,5 +1,5 @@
-import {AvatarColorCombos} from "../../../Constants/constants" 
-import { AvatarInfoType } from "../../../Types/types"
+import {AvatarColorCombos} from "../../../constants/constants" 
+import { AvatarInfo } from "../../../types/Types"
 type ChatAvatarProp = {
     name: string,
     id: number
@@ -9,10 +9,9 @@ function getInitials(name: string){
     const initials =words?.map((word) => word.charAt(0))
     return initials?.join("")
 }
-export function ChatAvatar({name,id}: ChatAvatarProp){
+export const  ChatAvatar = ({name,id}: ChatAvatarProp) => {
     const avatarText: string = getInitials(name)
-    const avatarStyle: AvatarInfoType = AvatarColorCombos[id?(id%6):0]
-    console.log(avatarStyle);
+    const avatarStyle: AvatarInfo = AvatarColorCombos[id?(id%6):0]
     return (
         <div className="chat-avatar-icon" style={{ backgroundColor:avatarStyle.background, color: avatarStyle.text }}>
             {avatarText}

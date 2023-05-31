@@ -1,14 +1,21 @@
+//libs
 import { useCallback } from "react";
+
+//hooks
 import { useQuery } from "./useQuery";
 import { useMutation } from "./useMutation";
-import { Action, ChatMessageType } from "../Types/types";
-import { ACTION, STATUS , fetchApi, getUserMessagesUrl } from "../Constants/constants";
+
+//types
+import { Action, ChatMessageType } from "../types/Types";
+
+//constants
+import { ACTION , fetchApi } from "../constants/constants";
 
 export const useAddMessage = (userId: string) => {
   const isValidUrl = !(userId)
   const { data, loading, error, updateQuery } = useQuery(
     fetchApi,
-    getUserMessagesUrl(userId),
+    `http://localhost:4001/getUserMessages/${userId}`,
     isValidUrl
   );
 
@@ -30,9 +37,6 @@ export const useAddMessage = (userId: string) => {
   const handleAddMessage = useCallback(
     async (newMessage: ChatMessageType) => {
       await mutate(newMessage);
-      if (status === STATUS.ERROR) {
-        console.error("can't add data");
-      }
     },
     [mutate, status]
   );

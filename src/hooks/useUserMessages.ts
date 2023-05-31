@@ -1,6 +1,6 @@
 import { useQuery } from "./useQuery";
-import {UserMessagesResType} from "../Types/types"
-import { fetchApi,getUserMessagesUrl } from "../Constants/constants";
+import {UserMessagesResType} from "../types/Types"
+import { fetchApi } from "../constants/constants";
 
 type UserMessages = {
    userMessages: UserMessagesResType ,
@@ -13,6 +13,6 @@ type UserMessages = {
 */
 export const useUserMessages = (userId: string): UserMessages => {
     const shouldSkip = !userId
-    const { data: userMessages, loading, error }  = useQuery(fetchApi,getUserMessagesUrl(userId), shouldSkip)
+    const { data: userMessages, loading, error }  = useQuery(fetchApi,`http://localhost:4001/getUserMessages/${userId}`, shouldSkip)
     return {userMessages,loading,error}
 }

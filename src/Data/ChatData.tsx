@@ -1,4 +1,6 @@
-import {ChatListDataType,ChatMessageType} from "../Types/types"
+//types
+import {ChatListDataType,ChatMessageType} from "../types/Types"
+
 const CustomerNames: string[] = [
   "Alma Binford",
   "Mariann Peppler",

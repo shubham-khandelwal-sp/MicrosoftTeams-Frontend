@@ -2,7 +2,7 @@
 import { useCallback, useState } from "react";
 
 //constants
-import { STATUS } from "../Constants/constants";
+import { STATUS } from "../constants/constants";
 
 type statusProps = {
   status: string;

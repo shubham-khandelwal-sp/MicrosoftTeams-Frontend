@@ -1,4 +1,6 @@
+//styles
 import "./style.css";
-export default function SprinklrHub() {
+
+export const SprinklrHub = () => {
   return <div className="sprinklr-hub"></div>;
 }

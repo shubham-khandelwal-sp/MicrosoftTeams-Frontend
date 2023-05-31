@@ -1,17 +1,23 @@
-import { CgProfile } from "react-icons/cg";
+// components
+import { Chatter } from "./Chatter";
+import { NewMessage } from "./NewMessage";
+import { Spinner } from "../../.spinner/Spinner";
+import { ErrorState } from "../../error/ErrorState";
+import { ChatAvatar } from "./ChatAvatar";
 import { BsPlusLg } from "react-icons/bs";
 import { FiVideo, FiLogOut } from "react-icons/fi";
 import { IoCallOutline } from "react-icons/io5";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { RiFolderUploadLine } from "react-icons/ri";
-import Chatter from "./Chatter";
-import NewMessage from "./NewMessage";
-import { ChatMessageType,ChatListDataType } from "../../../Types/types";
-import { Spinner } from "../../Spinner/Spinner";
-import { ErrorState } from "../../Error/ErrorState";
+
+// hooks
 import { useAddMessage } from "../../../hooks/useAddMessage";
-import { ACTION } from "../../../Constants/constants";
-import { ChatAvatar } from "./ChatAvatar";
+
+// types
+import { ChatMessageType, ChatListDataType } from "../../../types/Types";
+
+// constants
+import { ACTION } from "../../../constants/constants";
 
 function getCurrTime():string {
   function convertToTwoLetters(val:number): string {
@@ -19,10 +25,9 @@ function getCurrTime():string {
     return value.length === 2 ? value : "0" + value;
   }
   const currTime = new Date();
-
   const timing: string = `${convertToTwoLetters(
     currTime.getDate()
-  )}/${convertToTwoLetters(currTime.getMonth())}  ${convertToTwoLetters(
+  )}/${convertToTwoLetters(currTime.getMonth()+1)}  ${convertToTwoLetters(
     currTime.getHours()
   )}:${convertToTwoLetters(currTime.getMinutes())}`;
 
@@ -31,10 +36,10 @@ function getCurrTime():string {
 
 type ChatRightFoldProp= {
   chatData: ChatListDataType;
-  handleNewMessage: (messageObj: ChatMessageType) => void
+  onNewMessage: (messageObj: ChatMessageType) => void
 }
 
-export default function ChatRightFold({ chatData, handleNewMessage }: ChatRightFoldProp) {
+export const ChatRightFold = ({ chatData, onNewMessage }: ChatRightFoldProp) => {
 
   const {
     data,
@@ -55,7 +60,7 @@ export default function ChatRightFold({ chatData, handleNewMessage }: ChatRightF
       type: ACTION.ADD_MESSAGE,
       newMessage : messageObj
     })
-    handleNewMessage(messageObj)
+    onNewMessage(messageObj)
   }
 
   if(loading) return < Spinner color='#000000' size={100} />
@@ -91,7 +96,7 @@ export default function ChatRightFold({ chatData, handleNewMessage }: ChatRightF
           <Chatter messages={messagesData} chatData={chatData} />
         </div>
         <div className="new-message">
-          <NewMessage handleSendMessage={handleSendMessage} />
+          <NewMessage onSendMessage={handleSendMessage} />
         </div>
       </div>
     </div>

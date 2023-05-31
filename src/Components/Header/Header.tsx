@@ -1,7 +1,11 @@
-import "./style.css";
+//components
 import { AiOutlineLeft, AiOutlineRight, AiOutlineSearch } from "react-icons/ai";
 import { TfiMore } from "react-icons/tfi";
-export default function Header() {
+
+//styles
+import "./style.css";
+
+export const Header = () => {
   return (
     <div className="header">
       <div className="header-menu"></div>

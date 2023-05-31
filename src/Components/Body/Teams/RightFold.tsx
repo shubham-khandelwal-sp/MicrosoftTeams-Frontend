@@ -4,11 +4,11 @@ import { FiVideo, FiLogOut } from "react-icons/fi";
 import { IoCallOutline } from "react-icons/io5";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { RiFolderUploadLine } from "react-icons/ri";
-import { getRandomChat } from "../../../Data/ChatData";
+import { getRandomChat } from "../../../data/ChatData";
 import Chatter from "./Chatter";
 import NewMessage from "./NewMessage";
 import { useState } from "react";
-import { ChatMessageType,ChatListDataType } from "../../../Types/types";
+import { ChatMessageType,ChatListDataType } from "../../../types/Types";
 
 function getCurrTime():string {
   function convertToTwoLetters(val:number): string {

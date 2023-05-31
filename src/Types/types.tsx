@@ -1,9 +1,3 @@
-export type SideBarOption ={
-    id: number,
-    name: string,
-    icon: JSX.Element
-}
-
 export type ChatListDataType = {
     id: number,
     name: string,
@@ -28,7 +22,7 @@ export type Action = {
     newMessage: ChatMessageType
 }
 
-export type AvatarInfoType ={
+export type AvatarInfo ={
     background: string,
     text: string 
 }

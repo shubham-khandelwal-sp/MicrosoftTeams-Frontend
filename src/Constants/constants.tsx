@@ -1,20 +1,9 @@
-import { AvatarInfoType } from "../Types/types";
+//types
+import { AvatarInfo } from "../types/Types";
+
 export const fetchApi = (url: string) => {
     return fetch(url);
 };
-
-const activePort: string = "4001"
-
-export const getAllUsersUrl: string = `http://localhost:${activePort}/getAllUsers`
-
-export const getUserMessagesUrl = (userId: string) : string => {
-    return `http://localhost:${activePort}/getUserMessages/${userId}`
-}
-
-export const addUserMessageUrl =(userId: string) : string => {
-    return `http://localhost:${activePort}/addMessage/${userId}`
-}
-
 
 export const STATUS ={
     SUCCESS : "SUCCESS",
@@ -27,7 +16,7 @@ export const ACTION = {
     ADD_MESSAGE: "ADD_MESSAGE",
 };
 
-export const AvatarColorCombos: AvatarInfoType[] = [
+export const AvatarColorCombos: AvatarInfo[] = [
     {
         background: "#c8d4e7",
         text: "#07214b"

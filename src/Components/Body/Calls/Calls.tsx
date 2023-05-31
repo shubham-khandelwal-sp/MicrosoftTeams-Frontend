@@ -1,4 +1,6 @@
+//styles
 import "./style.css";
-export default function Calls() {
+
+export const Calls = () => {
   return <div className="calls"></div>;
 }

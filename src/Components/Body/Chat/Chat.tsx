@@ -1,19 +1,32 @@
-import ChatLeftFold from "./LeftFold";
-import ChatRightFold from "./RightFold";
+//libs
+import { useState,useCallback } from "react";
+
+//components
+import { ChatLeftFold } from "./LeftFold";
+import { ChatRightFold } from "./RightFold";
+import { Spinner } from "../../.spinner/Spinner";
+import { ErrorState } from "../../error/ErrorState";
+
+//hooks
+import {useUsersQuery} from '../../../hooks/useUsersQuery'
+
+//types
+import { ChatMessageType, ChatListDataType } from "../../../types/Types";
+
+//constants
+
+//styles
 import "./style.css";
-import { useState } from "react";
-import {useAllUsers} from '../../../hooks/useAllUsers'
-import {Spinner} from '../../Spinner/Spinner'
-import { ErrorState } from "../../Error/ErrorState";
-import { ChatMessageType, ChatListDataType } from "../../../Types/types";
-export function Chat() {
-  const {allUserDetails: chatList,loading,error, updateQuery} = useAllUsers()
+
+export const Chat = () => {
+  const {allUserDetails: chatList,loading,error, updateQuery} = useUsersQuery()
   const [selectedChat, setSelectedChat] = useState<number>(0);
 
   if(loading) return < Spinner color='#000000' size={100} />
   if(error)  return < ErrorState />
 
-  function handleNewMessage(newMessageObj: ChatMessageType){
+
+  const  handleNewMessage = (newMessageObj: ChatMessageType) =>{
        const newUserChat: ChatListDataType = {
         id: chatList[selectedChat].id,
         name: chatList[selectedChat].name,
@@ -37,7 +50,7 @@ export function Chat() {
         />
       </div>
       <div className="chat-right">
-        <ChatRightFold chatData={chatList?.[selectedChat]} handleNewMessage={handleNewMessage} />
+        <ChatRightFold chatData={chatList?.[selectedChat]} onNewMessage={handleNewMessage} />
       </div>
     </div>
   );

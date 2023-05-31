@@ -2,8 +2,14 @@
 import { useCallback, useEffect, useState } from "react";
 
 //constants
-import { STATUS } from "../Constants/constants";
+import { STATUS } from "../constants/constants";
 
+export type QueryResult<TData> = {
+  allUserDetails: TData[],
+  loading: boolean,
+  error: Error | undefined,
+  updateQuery: (newData: TData[]) => void
+};
 
 type statusProps = {
   status: string;

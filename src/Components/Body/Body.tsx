@@ -1,54 +1,49 @@
-import Home from "./Home/Home";
-import {Chat} from "./Chat/Chat";
-import Teams from "./Teams/Chat";
-import Activity from "./Activity/Activity";
-import Apps from "./Apps/Apps";
-import Calls from "./Calls/Calls";
-import Files from "./Files/Files";
-import Help from "./Help/Help";
-import More from "./More/More";
-import SprinklrHub from "./SprinklrHub/SprinklrHub";
+//components
+import {Home} from "./home";
+import {Chat} from "./chat";
+import {Teams} from "./teams";
+import {Activity} from "./activity";
+import {Apps} from "./apps";
+import {Calls} from "./calls";
+import {Files} from "./files";
+import {Help} from "./help";
+import {More} from "./more";
+import {SprinklrHub} from "./sprinklrHub";
+
+//styles
 import "./styles.css";
+
+enum ViewType {
+  Home = 'Home',
+  Activity = 'Activity',
+  Chat = 'Chat',
+  Teams = 'Teams',
+  Calls = 'Calls',
+  Files = 'Files',
+  SprinklrHub = 'Sprinklr Hub',
+  More = 'More',
+  Apps = 'Apps',
+  Help = 'Help',
+}
+
+const VIEW_TYPE_VS_COMPONENT_MAP = {
+  [ViewType.Home]: <Home />,
+  [ViewType.Activity]: <Activity />,
+  [ViewType.Chat]: <Chat />,
+  [ViewType.Teams]: <Teams />,
+  [ViewType.Calls]: <Calls />,
+  [ViewType.Files]: <Files />,
+  [ViewType.SprinklrHub]: <SprinklrHub />,
+  [ViewType.More]: <More />,
+  [ViewType.Apps]: <Apps />,
+  [ViewType.Help]: <Help />,
+};
 
 type BodyProp = {
   activePage: string
 }
-export default function Body({ activePage }: BodyProp) {
-  let component = <Home />;
-  switch (activePage) {
-    case "Home":
-      component = <Home />;
-      break;
-    case "Activity":
-      component = <Activity />;
-      break;
-    case "Chat":
-      component = <Chat />;
-      break;
-    case "Teams":
-      component = <Teams />;
-      break;
-    case "Calls":
-      component = <Calls />;
-      break;
-    case "Files":
-      component = <Files />;
-      break;
-    case "Sprinklr Hub":
-      component = <SprinklrHub />;
-      break;
-    case "More":
-      component = <More />;
-      break;
-    case "Apps":
-      component = <Apps />;
-      break;
-    case "Help":
-      component = <Help />;
-      break;
-    default:
-      component = <Home />;
-      break;
-  }
+
+export const Body = ({ activePage }: BodyProp) => {
+  const component = VIEW_TYPE_VS_COMPONENT_MAP[activePage as ViewType] || <Home />;
   return <div className="body">{component}</div>;
 }

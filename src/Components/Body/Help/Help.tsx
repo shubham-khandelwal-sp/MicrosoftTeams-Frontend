@@ -1,4 +1,6 @@
+//styles
 import "./style.css";
-export default function Help() {
+
+export const Help = () => {
   return <div className="help"></div>;
 }

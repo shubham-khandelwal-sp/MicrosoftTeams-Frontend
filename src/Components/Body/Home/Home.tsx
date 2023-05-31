@@ -1,4 +1,6 @@
+//styles
 import "./style.css";
-export default function Home() {
+
+export const Home = () => {
   return <div className="home"></div>;
 }

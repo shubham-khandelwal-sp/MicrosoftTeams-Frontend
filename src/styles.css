@@ -20,7 +20,6 @@ body {
 }
 
 .teams-header {
-  display: flex;
   height: 6%;
   width: 100%;
 }
@@ -32,13 +31,11 @@ body {
 }
 
 .teams-sidebar {
-  display: flex;
   width: 4%;
   height: 100%;
 }
 
 .teams-body {
-  display: flex;
   width: 96%;
   height: 100%;
 }

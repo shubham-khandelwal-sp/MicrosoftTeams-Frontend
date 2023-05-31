@@ -1,9 +1,15 @@
-import "./styles.css";
+//libs
 import { useState } from "react";
-import Sidebar from "./Components/Sidebar/Sidebar";
-import Body from "./Components/Body/Body";
-import Header from "./Components/Header/Header";
-export default function App() {
+
+//components
+import {Sidebar} from "./components/sideBar";
+import {Body} from "./components/body";
+import {Header} from "./components/header";
+
+//styles
+import "./styles.css";
+
+export const  App = () => {
   const [activePage, setActivePage] = useState<string>("Home");
 
   function handlePageClick(selectedPage: string): void {

@@ -1,4 +1,7 @@
+//libs
 import ClipLoader from "react-spinners/ClipLoader";
+
+//styles
 import "./style.css"
 
 type SpinnerProps = {

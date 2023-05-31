@@ -1,4 +1,6 @@
+//styles
 import "./style.css";
-export default function More() {
+
+export const More = () => {
   return <div className="more"></div>;
 }

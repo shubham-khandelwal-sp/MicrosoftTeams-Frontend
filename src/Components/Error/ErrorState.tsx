@@ -1,4 +1,6 @@
+//styles
 import "./style.css"
+
 export const ErrorState = () => {
     return (
         <div className="error-state">

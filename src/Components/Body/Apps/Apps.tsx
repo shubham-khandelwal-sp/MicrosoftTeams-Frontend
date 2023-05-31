@@ -1,4 +1,6 @@
+//styles
 import "./style.css";
-export default function Apps() {
+
+export const Apps = () => {
   return <div className="apps"></div>;
 }

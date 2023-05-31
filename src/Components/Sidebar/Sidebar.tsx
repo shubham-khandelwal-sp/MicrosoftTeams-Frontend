@@ -1,13 +1,24 @@
+//components
+import {SidebarOption} from "./SidebarOption";
+
+//constants
+import { TopSidebar, BottomSidebar } from "../../data/Sidebar";
+
+//styles
 import "./styles.css";
-import { TopSidebar, BottomSidebar } from "../../Data/Sidebar";
-import SidebarOption from "./SidebarOption";
 
 type SidebarProps = {
   activePage : string;
   handlePageClick: (selectedPage: string) => void;
 }
-import {SideBarOption} from "../../Types/types"
-export default function Sidebar({ activePage, handlePageClick} : SidebarProps) {
+
+export type SideBarOption ={
+  id: number,
+  name: string,
+  icon: JSX.Element
+}
+
+export const  Sidebar = ({ activePage, handlePageClick} : SidebarProps) => {
   return (
     <div className="sidebar">
       <div className="sidebar-top">

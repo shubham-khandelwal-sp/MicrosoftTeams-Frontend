@@ -1,4 +1,6 @@
+//styles
 import "./style.css";
-export default function Files() {
+
+export const Files = () => {
   return <div className="files"></div>;
 }

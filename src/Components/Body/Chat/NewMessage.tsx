@@ -1,29 +1,27 @@
-import {
-  AiOutlineVideoCameraAdd,
-  AiOutlineSend,
-  AiOutlineExclamation
-} from "react-icons/ai";
-import { MdTextFormat, MdCelebration } from "react-icons/md";
+//libs
+import { useState } from "react";
+
+//components
+import { AiOutlineVideoCameraAdd, AiOutlineSend, AiOutlineExclamation } from "react-icons/ai";
+import { MdTextFormat, MdCelebration, MdOutlineLoop, MdOutlineGifBox, MdApproval } from "react-icons/md";
 import { SiSololearn } from "react-icons/si";
 import { ImAttachment } from "react-icons/im";
-import { MdOutlineLoop, MdOutlineGifBox, MdApproval } from "react-icons/md";
 import { IoIosMore } from "react-icons/io";
 import { BsCalendar2Plus, BsCameraReels } from "react-icons/bs";
 import { GrEmoji } from "react-icons/gr";
 import { BiRightTopArrowCircle } from "react-icons/bi";
 import { GiNotebook } from "react-icons/gi";
-import { useState } from "react";
 
 type NewMessageProps = {
-  handleSendMessage: (message: string) => void
+  onSendMessage: (message: string) => void
 }
-export default function NewMessage({ handleSendMessage }: NewMessageProps) {
+export const NewMessage = ({ onSendMessage }: NewMessageProps) => {
   const [currMessage, setCurrMessage] = useState("");
   function sendMessage() {
     if (currMessage.length === 0) {
       return;
     }
-    handleSendMessage(currMessage);
+    onSendMessage(currMessage);
     setCurrMessage("");
   }
   const handleKeyDown = (event: any) => {

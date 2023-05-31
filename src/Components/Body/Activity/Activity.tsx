@@ -1,4 +1,6 @@
+//styles
 import "./style.css";
-export default function Activity() {
+
+export const Activity = () => {
   return <div className="activity"></div>;
 }

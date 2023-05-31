@@ -1,10 +1,10 @@
 import ChatLeftFold from "./LeftFold";
 import ChatRightFold from "./RightFold";
 import "./style.css";
-import { ChatListData } from "../../../Data/ChatData";
+import { ChatListData } from "../../../data/ChatData";
 import { useState } from "react";
-import {ChatListDataType} from "../../../Types/types"
-export default function Teams() {
+import {ChatListDataType} from "../../../types/Types"
+export const Teams = () => {
   const [chatList, setChatList] = useState<ChatListDataType[]>(ChatListData);
   const [selectedChat, setSelectedChat] = useState<number>(0);
 

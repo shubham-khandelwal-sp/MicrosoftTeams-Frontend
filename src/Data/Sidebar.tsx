@@ -1,3 +1,4 @@
+//components
 import { IoHomeSharp, IoCallOutline } from "react-icons/io5";
 import {
   AiOutlineBell,
@@ -8,7 +9,10 @@ import { BsChatText, BsBoundingBox } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { TfiHelpAlt } from "react-icons/tfi";
-import {SideBarOption} from "../Types/types"
+
+//types
+import { SideBarOption } from "../components/sideBar/Sidebar";
+
 
 export const TopSidebar: SideBarOption[] = [
   {
