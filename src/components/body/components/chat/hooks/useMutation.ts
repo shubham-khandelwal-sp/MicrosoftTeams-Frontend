@@ -4,27 +4,30 @@ import { useCallback, useState } from "react";
 //constants
 import { STATUS } from "../constants/constants";
 
-type StatusProps = {
+type StatusProps<TData> = {
   status: string;
-  data: any;
+  data: TData | undefined;
   error: Error | undefined;
 };
 
-type MutationConfig<TMutation> = {
-  onSuccess: (data: TMutation) => void;
+type MutationConfig<TPayload> = {
+  onSuccess: (data: TPayload) => void;
 };
 
-const initialState : StatusProps = {
-   status: STATUS.IDLE,
-   data: undefined,
-   error: undefined
-}
+const initialState = {
+  status: STATUS.IDLE,
+  data: undefined,
+  error: undefined,
+};
 
-export const useMutation = <TMutation>(url: string, config: MutationConfig<TMutation>) => {
-  const [state, setState] = useState<StatusProps>(initialState);
+export const useMutation = <TPayload>(
+  url: string,
+  config: MutationConfig<TPayload>
+) => {
+  const [state, setState] = useState<StatusProps<TPayload>>(initialState);
 
   const mutate = useCallback(
-    (payload: TMutation) => {
+    (payload: TPayload) => {
       setState((state) => {
         return {
           ...state,
@@ -38,7 +41,7 @@ export const useMutation = <TMutation>(url: string, config: MutationConfig<TMuta
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error('Error from backend');
+            throw new Error("Error from backend");
           }
           return response.json();
         })

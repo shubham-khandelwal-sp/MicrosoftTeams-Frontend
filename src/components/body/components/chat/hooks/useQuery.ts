@@ -5,24 +5,24 @@ import { useCallback, useEffect, useState } from "react";
 import { STATUS } from "../constants/constants";
 
 export type QueryResult<TData> = {
-  allUserDetails: TData[],
-  loading: boolean,
-  error: Error | undefined,
-  updateQuery: (newData: TData[]) => void
+  data: TData | undefined;
+  loading: boolean;
+  error: Error | undefined;
+  updateQuery: (newData: TData | undefined) => void;
 };
 
-type QueryState = {
+type QueryState<TData> = {
   status: string;
-  data: any;
+  data: TData | undefined;
   error: Error | undefined;
 };
 
-export const useQuery =(
+export const useQuery = <TData>(
   asyncFunc: (asyncFuncParams: string) => Promise<Response>,
   asyncFuncParams: string,
   skip: boolean
 ) => {
-  const [state, setState] = useState<QueryState>({
+  const [state, setState] = useState<QueryState<TData>>({
     status: STATUS.IDLE,
     data: undefined,
     error: undefined,
@@ -32,7 +32,7 @@ export const useQuery =(
     //to ignore network request
     let ignore = false;
     if (skip || ignore) return;
-    setState((state) => {
+    setState((state: QueryState<TData>) => {
       return {
         ...state,
         status: STATUS.LOADING,
@@ -46,7 +46,7 @@ export const useQuery =(
         return response.json();
       })
       .then((json) => {
-        setState((state) => {
+        setState((state: QueryState<TData>) => {
           return {
             ...state,
             status: STATUS.SUCCESS,
@@ -55,7 +55,7 @@ export const useQuery =(
         });
       })
       .catch((err) => {
-        setState((state) => {
+        setState((state: QueryState<TData>) => {
           return {
             ...state,
             status: STATUS.ERROR,
@@ -68,15 +68,15 @@ export const useQuery =(
     };
   }, [skip, asyncFuncParams, asyncFunc]);
 
-  const updateQuery = useCallback((newData:any) => {
-    setState((state) => {
+  const updateQuery = useCallback((newData: TData | undefined) => {
+    setState((state: QueryState<TData>) => {
       return {
         ...state,
         status: STATUS.SUCCESS,
         data: newData,
       };
     });
-  },[]);
+  }, []);
 
   return {
     data: state.data,

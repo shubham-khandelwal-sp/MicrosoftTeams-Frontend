@@ -3,9 +3,13 @@ import { ChatListDataType } from "../types/types";
 type ChatBarProps = {
   chatData: ChatListDataType;
   isActive: boolean;
-  changeSelectedChat: (num: number) => void
-}
-export default function ChatBar({ chatData, isActive, changeSelectedChat }: ChatBarProps) {
+  changeSelectedChat: (num: number) => void;
+};
+export default function ChatBar({
+  chatData,
+  isActive,
+  changeSelectedChat,
+}: ChatBarProps) {
   const classList = "chatbar" + (isActive ? " chatbar-active" : "");
   return (
     <div className={classList} onClick={() => changeSelectedChat(chatData.id)}>

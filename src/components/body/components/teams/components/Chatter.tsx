@@ -1,17 +1,17 @@
 import { CgProfile } from "react-icons/cg";
-import {useRef,useEffect} from 'react'
-import { ChatMessageType,ChatListDataType } from "../types/types";
+import { useRef, useEffect } from "react";
+import { ChatMessageType, ChatListDataType } from "../types/types";
 type IncomingMessageProp = {
-   indMessage: ChatMessageType;
-   chatData: ChatListDataType;
-}
+  indMessage: ChatMessageType;
+  chatData: ChatListDataType;
+};
 type OutgoingMessageProp = {
-   indMessage: ChatMessageType;
-}
+  indMessage: ChatMessageType;
+};
 type ChatterProp = {
   messages: ChatMessageType[];
-  chatData: ChatListDataType
-}
+  chatData: ChatListDataType;
+};
 function OutgoingMessage({ indMessage }: OutgoingMessageProp) {
   return (
     <div className="outgoing-message">
@@ -53,7 +53,7 @@ export default function Chatter({ messages, chatData }: ChatterProp) {
 
   useEffect(() => {
     if (lastMessageRef.current) {
-      lastMessageRef.current.scrollIntoView({ behavior: 'smooth' });
+      lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
 

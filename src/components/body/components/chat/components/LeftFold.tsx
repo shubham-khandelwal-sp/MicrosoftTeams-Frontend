@@ -12,50 +12,38 @@ import { ChatBar } from "./ChatBar";
 import { useToggleVisibility } from "../hooks/useToggleVisibility";
 
 // types
-import { ChatListDataType } from "../types/types"
+import { ChatListDataType } from "../types/types";
 
 type CollapsibleProp = {
-  className: string,
-  title: string,
-  showContent: boolean,
-  onClick: () => void,
-  children: JSX.Element
-}
+  className: string;
+  title: string;
+  children: JSX.Element;
+};
 
-const Collapsible = ({className,title,showContent,onClick,children}: CollapsibleProp) =>{
-    return (
-      <div className={className}>
-        <div className="chatpinheader" onClick={onClick}>
-           {showContent?<RxTriangleDown />: <RxTriangleRight/>}
-            <small> {title} </small>
-        </div>
-        {children}
+const Collapsible = ({ className, title, children }: CollapsibleProp) => {
+  const { state: showChat, handleToggle } = useToggleVisibility(true);
+  return (
+    <div className={className}>
+      <div className="chatpinheader" onClick={handleToggle}>
+        {showChat ? <RxTriangleDown /> : <RxTriangleRight />}
+        <small> {title} </small>
       </div>
-    )
-}
+      {showChat && children}
+    </div>
+  );
+};
 
 type ChatLeftFoldProps = {
-  chatList: ChatListDataType[];
+  chatList: ChatListDataType[] | undefined;
   selectedChat: number | undefined;
-  changeSelectedChat: (num: number) => void
-}
+  changeSelectedChat: (num: number) => void;
+};
 
 export const ChatLeftFold = ({
   chatList,
   selectedChat,
-  changeSelectedChat
+  changeSelectedChat,
 }: ChatLeftFoldProps) => {
-  const {state: showPinned,handleToggle: onPinnedToggle}= useToggleVisibility(true)
-  const {state: showRecent,handleToggle: onRecentToggle}= useToggleVisibility(true)
-
-  const handlePinnedClick = useCallback(()=>{
-    onPinnedToggle(!showPinned)
-  },[showPinned,onPinnedToggle])
-
-  const handleRecentClick = useCallback(()=>{
-    onRecentToggle(!showRecent)
-  },[showRecent,onRecentToggle])
-
   return (
     <div className="chatLeftFold">
       <div className="chatListHeader">
@@ -69,21 +57,21 @@ export const ChatLeftFold = ({
         </div>
       </div>
       <div className="chat-total">
-        < Collapsible className="chatPinned" title="Pinned" showContent={showPinned} onClick={handlePinnedClick}>
-        <div>
-            { showPinned &&
+        <Collapsible className="chatPinned" title="Pinned">
+          <div>
+            {
               <ChatBar
                 key={chatList?.[0].id}
                 isActive={chatList?.[0].id === selectedChat}
                 chatData={chatList?.[0]}
                 onClick={changeSelectedChat}
               />
-           }
+            }
           </div>
         </Collapsible>
-        < Collapsible className="chatList" title="Recent" showContent={showRecent} onClick={handleRecentClick}>
-        <div>
-          { showRecent && chatList?.map((chatData) => {
+        <Collapsible className="chatList" title="Recent">
+          <div>
+            {chatList?.map((chatData) => {
               return (
                 <ChatBar
                   key={chatData.id}
@@ -98,4 +86,4 @@ export const ChatLeftFold = ({
       </div>
     </div>
   );
-}
+};

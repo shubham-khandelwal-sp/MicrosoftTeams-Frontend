@@ -31,7 +31,8 @@ body {
 }
 
 .teams-sidebar {
-  width: 4%;
+  width: 70px;
+  flex-shrink: 0;
   height: 100%;
 }
 

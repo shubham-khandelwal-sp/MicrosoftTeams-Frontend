@@ -19,58 +19,57 @@ import { ChatMessageType, ChatListDataType } from "../types/types";
 // constants
 import { ACTION } from "../constants/constants";
 
-function getCurrTime():string {
-  function convertToTwoLetters(val:number): string {
+function getCurrTime(): string {
+  function convertToTwoLetters(val: number): string {
     const value = val.toString();
     return value.length === 2 ? value : "0" + value;
   }
   const currTime = new Date();
   const timing: string = `${convertToTwoLetters(
     currTime.getDate()
-  )}/${convertToTwoLetters(currTime.getMonth()+1)}  ${convertToTwoLetters(
+  )}/${convertToTwoLetters(currTime.getMonth() + 1)}  ${convertToTwoLetters(
     currTime.getHours()
   )}:${convertToTwoLetters(currTime.getMinutes())}`;
 
   return timing;
 }
 
-type ChatRightFoldProp= {
-  chatData: ChatListDataType;
-  onNewMessage: (messageObj: ChatMessageType) => void
-}
+type ChatRightFoldProp = {
+  chatData: ChatListDataType | undefined;
+  onNewMessage: (messageObj: ChatMessageType) => void;
+};
 
-export const ChatRightFold = ({ chatData, onNewMessage }: ChatRightFoldProp) => {
+export const ChatRightFold = ({
+  chatData,
+  onNewMessage,
+}: ChatRightFoldProp) => {
+  const { data, onAction, loading, error } = useAddMessage(
+    chatData?.id?.toString()
+  );
 
-  const {
-    data,
-    onAction,
-    loading,
-    error,
-  } = useAddMessage(chatData?.id?.toString());
-
-  const messagesData = data?.messages
+  const messagesData = data?.messages;
   function handleSendMessage(message: string) {
     const messageObj: ChatMessageType = {
-      id: messagesData[messagesData.length - 1].id + 1,
+      id: messagesData ? messagesData[messagesData.length - 1].id + 1 : 0,
       sender: 0,
       message: message,
-      timing: getCurrTime()
+      timing: getCurrTime(),
     };
     onAction({
       type: ACTION.ADD_MESSAGE,
-      newMessage : messageObj
-    })
-    onNewMessage(messageObj)
+      newMessage: messageObj,
+    });
+    onNewMessage(messageObj);
   }
 
-  if(loading) return < Spinner color='#000000' size={100} />
-  if(error)  return < ErrorState err={error} />
+  if (loading) return <Spinner color="#000000" size={100} />;
+  if (error) return <ErrorState err={error} />;
 
   return (
     <div className="chatRightFold">
       <div className="chatinfo-header">
         <div className="chatinfo-header-left">
-        <ChatAvatar name={chatData?.name} id={chatData?.id} />
+          <ChatAvatar name={chatData?.name} id={chatData?.id} />
           <h2> {chatData?.name} </h2>
           <span> Chat </span>
           <span> Files </span>
@@ -101,4 +100,4 @@ export const ChatRightFold = ({ chatData, onNewMessage }: ChatRightFoldProp) => 
       </div>
     </div>
   );
-}
+};

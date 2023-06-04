@@ -1,28 +1,28 @@
 export type ChatListDataType = {
-    id: number,
-    name: string,
-    lastMessage: string,
-    lastModified: string
-}
+  id: number;
+  name: string;
+  lastMessage: string;
+  lastModified: string;
+};
 
 export type ChatMessageType = {
-    id: number,
-    sender: number,
-    message: string,
-    timing: string
-}
+  id: number;
+  sender: number;
+  message: string;
+  timing: string;
+};
 
 export type UserMessagesResType = {
-    id: string,
-    messages: ChatMessageType[]
-}
+  id: string;
+  messages: ChatMessageType[];
+};
 
 export type Action = {
-    type: string,
-    newMessage: ChatMessageType
-}
+  type: string;
+  newMessage: ChatMessageType;
+};
 
-export type AvatarInfo ={
-    background: string,
-    text: string 
-}
+export type AvatarInfo = {
+  background: string;
+  text: string;
+};

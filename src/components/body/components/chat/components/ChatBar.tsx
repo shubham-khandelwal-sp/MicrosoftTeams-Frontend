@@ -1,18 +1,25 @@
 //components
-import {ChatAvatar} from "./ChatAvatar"
+import { ChatAvatar } from "./ChatAvatar";
 
 //types
-import { ChatListDataType } from "../types/types"
+import { ChatListDataType } from "../types/types";
 
 type ChatBarProps = {
-  chatData: ChatListDataType;
+  chatData: ChatListDataType | undefined;
   isActive: boolean;
-  onClick: (num: number) => void
-}
-export const  ChatBar = ({ chatData, isActive, onClick }: ChatBarProps) => {
+  onClick: (num: number) => void;
+};
+export const ChatBar = ({ chatData, isActive, onClick }: ChatBarProps) => {
   const classList = "chatbar" + (isActive ? " chatbar-active" : "");
+
+  const handleClick = () => {
+    if (chatData?.id) {
+      onClick(chatData.id);
+    }
+  };
+
   return (
-    <div className={classList} onClick={() => onClick(chatData?.id)}>
+    <div className={classList} onClick={handleClick}>
       <div className="chatbar-icon">
         <ChatAvatar name={chatData?.name} id={chatData?.id} />
       </div>
@@ -25,4 +32,4 @@ export const  ChatBar = ({ chatData, isActive, onClick }: ChatBarProps) => {
       </div>
     </div>
   );
-}
+};

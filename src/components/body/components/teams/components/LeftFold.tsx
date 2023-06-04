@@ -7,12 +7,12 @@ import { ChatListDataType } from "../types/types";
 type ChatLeftFoldProps = {
   chatList: ChatListDataType[];
   selectedChat: number;
-  changeSelectedChat: (num: number) => void
-}
+  changeSelectedChat: (num: number) => void;
+};
 export default function ChatLeftFold({
   chatList,
   selectedChat,
-  changeSelectedChat
+  changeSelectedChat,
 }: ChatLeftFoldProps) {
   return (
     <div className="chatLeftFold">

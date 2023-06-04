@@ -1,5 +1,5 @@
 //components
-import {SidebarOption} from "./SidebarOption";
+import { SidebarOption } from "./SidebarOption";
 
 //types
 import { SideBarOption } from "./types/types";
@@ -11,11 +11,11 @@ import { TopSidebar, BottomSidebar } from "./constants/constants";
 import "./styles.css";
 
 type SidebarProps = {
-  activePage : string;
+  activePage: string;
   handlePageClick: (selectedPage: string) => void;
-}
+};
 
-export const  Sidebar = ({ activePage, handlePageClick} : SidebarProps) => {
+export const Sidebar = ({ activePage, handlePageClick }: SidebarProps) => {
   return (
     <div className="sidebar">
       <div className="sidebar-top">
@@ -31,7 +31,7 @@ export const  Sidebar = ({ activePage, handlePageClick} : SidebarProps) => {
         })}
       </div>
       <div className="sidebar-bottom">
-        {BottomSidebar.map((option: any) => {
+        {BottomSidebar.map((option: SideBarOption) => {
           return (
             <SidebarOption
               key={option.id}
@@ -44,4 +44,4 @@ export const  Sidebar = ({ activePage, handlePageClick} : SidebarProps) => {
       </div>
     </div>
   );
-}
+};

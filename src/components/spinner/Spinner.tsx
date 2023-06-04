@@ -2,19 +2,17 @@
 import ClipLoader from "react-spinners/ClipLoader";
 
 //styles
-import "./style.css"
+import "./style.css";
 
 type SpinnerProps = {
-    color: string;
-    size: number;
-}
+  color: string;
+  size: number;
+};
 
-export const Spinner=  ({color,size}:SpinnerProps) => {
-    return (
-        <div className="spinner">
-            < ClipLoader color={color} size={size} />
-        </div>
-    )
-}
-
-
+export const Spinner = ({ color, size }: SpinnerProps) => {
+  return (
+    <div className="spinner">
+      <ClipLoader color={color} size={size} />
+    </div>
+  );
+};

@@ -8,10 +8,10 @@ import { getRandomChat } from "../data/ChatData";
 import Chatter from "./Chatter";
 import NewMessage from "./NewMessage";
 import { useState } from "react";
-import { ChatMessageType,ChatListDataType } from "../types/types";
+import { ChatMessageType, ChatListDataType } from "../types/types";
 
-function getCurrTime():string {
-  function convertToTwoLetters(val:number): string {
+function getCurrTime(): string {
+  function convertToTwoLetters(val: number): string {
     const value = val.toString();
     return value.length === 2 ? value : "0" + value;
   }
@@ -26,9 +26,9 @@ function getCurrTime():string {
   return timing;
 }
 
-type ChatRightFoldProp= {
-  chatData: ChatListDataType
-}
+type ChatRightFoldProp = {
+  chatData: ChatListDataType;
+};
 
 export default function ChatRightFold({ chatData }: ChatRightFoldProp) {
   const [messagesData, setMessagesData] = useState(getRandomChat(30));
@@ -38,7 +38,7 @@ export default function ChatRightFold({ chatData }: ChatRightFoldProp) {
       id: messagesData[messagesData.length - 1].id + 1,
       sender: 0,
       message: message,
-      timing: getCurrTime()
+      timing: getCurrTime(),
     };
     setMessagesData([...messagesData, messageObj]);
   }

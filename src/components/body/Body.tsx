@@ -1,49 +1,41 @@
 //components
-import {Home} from "./components/home";
-import {Chat} from "./components/chat";
-import {Teams} from "./components/teams";
-import {Activity} from "./components/activity";
-import {Apps} from "./components/apps";
-import {Calls} from "./components/calls";
-import {Files} from "./components/files";
-import {Help} from "./components/help";
-import {More} from "./components/more";
-import {SprinklrHub} from "./components/sprinklrHub";
+import { Home } from "./components/home";
+import { Chat } from "./components/chat";
+import { Teams } from "./components/teams";
+import { Activity } from "./components/activity";
+import { Apps } from "./components/apps";
+import { Calls } from "./components/calls";
+import { Files } from "./components/files";
+import { Help } from "./components/help";
+import { More } from "./components/more";
+import { SprinklrHub } from "./components/sprinklrHub";
+
+//constants
+import { VIEW_TYPE } from "./components/constants";
 
 //styles
 import "./styles.css";
 
-enum ViewType {
-  Home = 'Home',
-  Activity = 'Activity',
-  Chat = 'Chat',
-  Teams = 'Teams',
-  Calls = 'Calls',
-  Files = 'Files',
-  SprinklrHub = 'Sprinklr Hub',
-  More = 'More',
-  Apps = 'Apps',
-  Help = 'Help',
-}
-
 const VIEW_TYPE_VS_COMPONENT_MAP = {
-  [ViewType.Home]: <Home />,
-  [ViewType.Activity]: <Activity />,
-  [ViewType.Chat]: <Chat />,
-  [ViewType.Teams]: <Teams />,
-  [ViewType.Calls]: <Calls />,
-  [ViewType.Files]: <Files />,
-  [ViewType.SprinklrHub]: <SprinklrHub />,
-  [ViewType.More]: <More />,
-  [ViewType.Apps]: <Apps />,
-  [ViewType.Help]: <Help />,
+  [VIEW_TYPE.HOME]: <Home />,
+  [VIEW_TYPE.ACTIVITY]: <Activity />,
+  [VIEW_TYPE.CHAT]: <Chat />,
+  [VIEW_TYPE.TEAMS]: <Teams />,
+  [VIEW_TYPE.CALLS]: <Calls />,
+  [VIEW_TYPE.FILES]: <Files />,
+  [VIEW_TYPE.SPRINKLR_HUB]: <SprinklrHub />,
+  [VIEW_TYPE.MORE]: <More />,
+  [VIEW_TYPE.APPS]: <Apps />,
+  [VIEW_TYPE.HELP]: <Help />,
 };
 
 type BodyProp = {
-  activePage: string
-}
+  activePage: string;
+};
 
 export const Body = ({ activePage }: BodyProp) => {
-  const component = VIEW_TYPE_VS_COMPONENT_MAP[activePage as ViewType] || <Home />;
+  const component = VIEW_TYPE_VS_COMPONENT_MAP[activePage as VIEW_TYPE] || (
+    <Home />
+  );
   return <div className="body">{component}</div>;
-}
+};

@@ -2,14 +2,14 @@
 import { useState } from "react";
 
 //components
-import {Sidebar} from "./components/sideBar";
-import {Body} from "./components/body";
-import {Header} from "./components/header";
+import { Sidebar } from "./components/sideBar";
+import { Body } from "./components/body";
+import { Header } from "./components/header";
 
 //styles
 import "./styles.css";
 
-export const  App = () => {
+export const App = () => {
   const [activePage, setActivePage] = useState<string>("Home");
 
   function handlePageClick(selectedPage: string): void {
@@ -30,4 +30,4 @@ export const  App = () => {
       </div>
     </div>
   );
-}
+};

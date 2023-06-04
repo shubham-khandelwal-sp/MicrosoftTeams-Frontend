@@ -3,7 +3,7 @@ import ChatRightFold from "./components/RightFold";
 import "./style.css";
 import { ChatListData } from "./data/ChatData";
 import { useState } from "react";
-import {ChatListDataType} from "./types/types"
+import { ChatListDataType } from "./types/types";
 export const Teams = () => {
   const [chatList, setChatList] = useState<ChatListDataType[]>(ChatListData);
   const [selectedChat, setSelectedChat] = useState<number>(0);
@@ -22,4 +22,4 @@ export const Teams = () => {
       </div>
     </div>
   );
-}
+};

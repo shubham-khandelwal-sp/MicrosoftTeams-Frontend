@@ -1,5 +1,5 @@
 //types
-import {ChatListDataType,ChatMessageType} from "../types/types"
+import { ChatListDataType, ChatMessageType } from "../types/types";
 
 const CustomerNames: string[] = [
   "Alma Binford",
@@ -51,12 +51,13 @@ const CustomerNames: string[] = [
   "Alberto Pleas",
   "Marylou Schaal",
   "Maryalice Utzinger",
-  "Sunni Pion"
+  "Sunni Pion",
 ];
 
-const LoremWords: string[] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum".split(
-  " "
-);
+const LoremWords: string[] =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum".split(
+    " "
+  );
 
 export const getRandomText = (wordCount: number): string => {
   let text: string[] = [];
@@ -76,14 +77,14 @@ export const getRandomChat = (exchanges: number): ChatMessageType[] => {
 
   for (let i = 0; i < exchanges; i++) {
     const numOfWords = Math.floor(Math.random() * 50);
-    const randomText = getRandomText((numOfWords % 20)+1);
+    const randomText = getRandomText((numOfWords % 20) + 1);
     const sender = getRandomBoolean();
     const timing = "15/05 12:23";
     allMessages.push({
       id: i,
       sender: sender,
       message: randomText,
-      timing: timing
+      timing: timing,
     });
   }
 
@@ -96,7 +97,7 @@ export const ChatListData: ChatListDataType[] = CustomerNames.map((name) => ({
   id: counter++,
   name: name,
   lastMessage: getRandomText(3 + Math.floor(15 * Math.random())),
-  lastModified: "3:30pm"
+  lastModified: "3:30pm",
 }));
 
 export const ChatData = CustomerNames.map((name) => ({}));

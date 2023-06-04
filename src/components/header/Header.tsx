@@ -20,9 +20,13 @@ export const Header = () => {
         </div>
         <div className="header-profile">
           <TfiMore className="more-item-icon" />
-          <img src={require("../../icons/AvatarIcon.png")} alt="Avatar" className="header-avatar" />
+          <img
+            src={require("../../icons/AvatarIcon.png")}
+            alt="Avatar"
+            className="header-avatar"
+          />
         </div>
       </div>
     </div>
   );
-}
+};

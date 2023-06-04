@@ -1,5 +1,5 @@
-export type SideBarOption ={
-    id: number,
-    name: string,
-    icon: JSX.Element
-  }
+export type SideBarOption = {
+  id: number;
+  name: string;
+  icon: JSX.Element;
+};

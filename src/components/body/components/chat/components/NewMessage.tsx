@@ -2,8 +2,18 @@
 import { useState } from "react";
 
 //components
-import { AiOutlineVideoCameraAdd, AiOutlineSend, AiOutlineExclamation } from "react-icons/ai";
-import { MdTextFormat, MdCelebration, MdOutlineLoop, MdOutlineGifBox, MdApproval } from "react-icons/md";
+import {
+  AiOutlineVideoCameraAdd,
+  AiOutlineSend,
+  AiOutlineExclamation,
+} from "react-icons/ai";
+import {
+  MdTextFormat,
+  MdCelebration,
+  MdOutlineLoop,
+  MdOutlineGifBox,
+  MdApproval,
+} from "react-icons/md";
 import { SiSololearn } from "react-icons/si";
 import { ImAttachment } from "react-icons/im";
 import { IoIosMore } from "react-icons/io";
@@ -13,8 +23,8 @@ import { BiRightTopArrowCircle } from "react-icons/bi";
 import { GiNotebook } from "react-icons/gi";
 
 type NewMessageProps = {
-  onSendMessage: (message: string) => void
-}
+  onSendMessage: (message: string) => void;
+};
 export const NewMessage = ({ onSendMessage }: NewMessageProps) => {
   const [currMessage, setCurrMessage] = useState("");
   function sendMessage() {
@@ -24,8 +34,8 @@ export const NewMessage = ({ onSendMessage }: NewMessageProps) => {
     onSendMessage(currMessage);
     setCurrMessage("");
   }
-  const handleKeyDown = (event: any) => {
-    if (event.keyCode === 13) {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
       event.preventDefault();
       sendMessage();
     }
@@ -69,4 +79,4 @@ export const NewMessage = ({ onSendMessage }: NewMessageProps) => {
       </div>
     </div>
   );
-}
+};

@@ -1,7 +1,7 @@
 import {
   AiOutlineVideoCameraAdd,
   AiOutlineSend,
-  AiOutlineExclamation
+  AiOutlineExclamation,
 } from "react-icons/ai";
 import { MdTextFormat, MdCelebration } from "react-icons/md";
 import { SiSololearn } from "react-icons/si";
@@ -15,8 +15,8 @@ import { GiNotebook } from "react-icons/gi";
 import { useState } from "react";
 
 type NewMessageProps = {
-  handleSendMessage: (message: string) => void
-}
+  handleSendMessage: (message: string) => void;
+};
 export default function NewMessage({ handleSendMessage }: NewMessageProps) {
   const [currMessage, setCurrMessage] = useState("");
   function sendMessage() {

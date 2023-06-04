@@ -1,5 +1,5 @@
 // Libs
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect } from "react";
 
 // Components
 import { ChatAvatar } from "./ChatAvatar";
@@ -8,16 +8,16 @@ import { ChatAvatar } from "./ChatAvatar";
 import { ChatMessageType, ChatListDataType } from "../types/types";
 
 type IncomingMessageProp = {
-   indMessage: ChatMessageType;
-   chatData: ChatListDataType;
-}
+  indMessage: ChatMessageType;
+  chatData: ChatListDataType | undefined;
+};
 type OutgoingMessageProp = {
-   indMessage: ChatMessageType;
-}
+  indMessage: ChatMessageType;
+};
 type ChatterProp = {
-  messages: ChatMessageType[];
-  chatData: ChatListDataType
-}
+  messages: ChatMessageType[] | undefined;
+  chatData: ChatListDataType | undefined;
+};
 
 function OutgoingMessage({ indMessage }: OutgoingMessageProp) {
   return (
@@ -60,7 +60,7 @@ export const Chatter = ({ messages, chatData }: ChatterProp) => {
 
   useEffect(() => {
     if (lastMessageRef.current) {
-      lastMessageRef.current.scrollIntoView({ behavior: 'smooth' });
+      lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
 
@@ -80,4 +80,4 @@ export const Chatter = ({ messages, chatData }: ChatterProp) => {
       <div ref={lastMessageRef} />
     </div>
   );
-}
+};

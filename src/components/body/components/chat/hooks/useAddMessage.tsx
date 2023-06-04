@@ -6,14 +6,14 @@ import { useQuery } from "./useQuery";
 import { useMutation } from "./useMutation";
 
 //types
-import { Action, ChatMessageType } from "../types/types";
+import { Action, ChatMessageType, UserMessagesResType } from "../types/types";
 
 //constants
-import { ACTION , fetchApi } from "../constants/constants"
+import { ACTION, fetchApi } from "../constants/constants";
 
-export const useAddMessage = (userId: string) => {
-  const isValidUrl = !(userId)
-  const { data, loading, error, updateQuery } = useQuery(
+export const useAddMessage = (userId: string | undefined) => {
+  const isValidUrl = !userId;
+  const { data, loading, error, updateQuery } = useQuery<UserMessagesResType>(
     fetchApi,
     `http://localhost:4001/getUserMessages/${userId}`,
     isValidUrl
@@ -23,7 +23,7 @@ export const useAddMessage = (userId: string) => {
     (newMessage: ChatMessageType) => {
       const newData = {
         ...data,
-        messages: [...data.messages , newMessage]
+        messages: data ? [...data.messages, newMessage] : [newMessage],
       };
       updateQuery(newData);
     },
@@ -55,5 +55,5 @@ export const useAddMessage = (userId: string) => {
     [handleAddMessage]
   );
 
-  return {data, onAction, loading, error };
+  return { data, onAction, loading, error };
 };
