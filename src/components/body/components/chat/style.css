@@ -1,0 +1,413 @@
+.chat {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.chat-left {
+  display: flex;
+  width: 25%;
+  height: 100%;
+}
+
+.chat-right {
+  display: flex;
+  width: 75%;
+  height: 100%;
+}
+
+.chatLeftFold {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  height: 100%;
+  width: 100%;
+  padding-left: 5px;
+}
+
+/*
+  Chat List Header
+*/
+
+.chatListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 5px 10px;
+  border-bottom: 2px solid #e4e4e4;
+}
+
+.listHeaderLeft {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.listHeaderRight {
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+/*
+  Chat pin
+*/
+
+.chat-total {
+  width: 100%;
+  height: 93.2%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  padding-bottom: 15px;
+}
+
+.chatpinheader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: rgba(37, 36, 36, 0.75);
+  margin: 12px 0px;
+}
+
+chatpinheader label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI";
+}
+
+.chatpinheader:hover {
+  cursor: pointer;
+}
+
+/*
+  Styling for the chatbar
+*/
+
+.chatbar {
+  display: flex;
+  width: 100%;
+  height: 42px;
+  padding: 0px 16px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.chatbar-active {
+  background-color: #ffffff;
+}
+
+.chatbar:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.chatbar-icon {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  margin-right: 5px;
+}
+.chatbar-details {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.chatter-cg-profile {
+  font-size: 24px;
+  color: #645353;
+}
+.chat-avatar-icon {
+  font-size: 12px;
+  border-radius: 50%;
+  border: 1px hidden;
+  padding: 8px;
+}
+.chatbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chatbar-name {
+  font-size: 14px;
+  color: #424242;
+}
+.chatbar-date {
+  color: #616161;
+  font-size: 12px;
+}
+.chatbar-text {
+  display: flex;
+  text-align: left;
+  color: #616161;
+  font-size: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/*
+  
+    Right fold chat component style
+
+*/
+
+/*
+   Header
+*/
+
+.chatRightFold {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.chatinfo-header {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eeedee;
+  padding: 0.1rem 1rem 0.1rem 1.5rem;
+}
+
+.chatinfo-header-left {
+  height: 100%;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.right-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+
+.chatinfo-header-right {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatinfo-left-cons {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.chatInfo-right-cons {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.callIcon {
+  color: #575757;
+  background-color: #ffffff;
+  border: 1px solid #d1d1d1;
+  height: 34px;
+  width: 32px;
+  padding: 8px 2px;
+}
+
+.addIcon {
+  color: #868686;
+  border: 1px solid #f5f5f5;
+  height: 34px;
+  width: 32px;
+  padding: 6px 2px;
+}
+
+/*
+   Chat Body
+*/
+
+.chatinfo-body {
+  display: flex;
+  flex-direction: column;
+  height: 93.5%;
+  width: 100%;
+}
+
+.chatter {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.new-message {
+  width: 100%;
+  height: 15%;
+  border-top: 1px hidden;
+}
+
+/* 
+ Chatter 
+*/
+
+.chatter-messages {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+}
+
+.incoming-message {
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px 0px 5px 0px;
+}
+
+.incoming-left {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.incoming-right {
+  border: 1px hidden;
+  background-color: #feffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 16px 10px 16px;
+}
+
+.incoming-icon {
+  font-size: 32px;
+  color: #424242;
+}
+
+.chatdata-name {
+  font-weight: bold;
+  color: #242424;
+  font-size: 12px;
+}
+
+.chatdata-timing {
+  font-size: 13px;
+  color: #616161;
+}
+
+.chatdata-text-content {
+  color: #242424;
+  font-size: 14px;
+  text-align: left;
+}
+
+.outgoing-message {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px 0px 5px 5px;
+}
+
+.outgoing-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.outgoing-comp-message {
+  border: 1px hidden;
+  background-color: #e9ebfa;
+  padding: 8px 16px 10px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatter-message-content {
+  text-align: left;
+}
+/* 
+ New messsage
+*/
+
+.message-compose {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 5px;
+}
+
+.message-input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0px;
+}
+
+.message-input-text {
+  width: 70%;
+  padding: 10px 16px 8px 12px;
+  text-align: left;
+  border: 1px solid #eae9ea;
+}
+
+.message-option-icons {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.message-option-icon-left {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.message-option-icon-right {
+  width: 7%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.message-icon {
+  font-size: 20px;
+  color: #646463;
+}
+
+/*
+  Start Chat
+*/
+
+.chatStart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-chat-icon {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+}
+
+.chatStart p {
+  font-size: 1.5rem;
+  color: rgb(72, 99, 17);
+}
